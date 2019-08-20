@@ -14,6 +14,7 @@ public class PatronRepresentativo extends Patron {
    
     public PatronRepresentativo(Patron a){
         super(a.getVector().length);
+        super.setClase(a.getClase());
         this.contador=0;
         acumular(a);
       
@@ -33,6 +34,7 @@ public class PatronRepresentativo extends Patron {
         }
         this.contador = 0;
     }
+
     
     
 }
