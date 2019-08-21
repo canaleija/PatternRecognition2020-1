@@ -13,9 +13,17 @@ import java.util.ArrayList;
  */
 public class MinimaDistancia implements ClasificadorSupervisado {
 
+    private  ArrayList<PatronRepresentativo> representativos;
+    
+    public MinimaDistancia() {
+        this.representativos = new ArrayList<PatronRepresentativo>();
+    }
+
+    
+    
     @Override
     public void entrenar(ArrayList<Patron> instancias) {
-        ArrayList<PatronRepresentativo> representativos = new ArrayList<PatronRepresentativo>();
+       
         // agregamos el primer representativo 
         representativos.add(new PatronRepresentativo(instancias.get(0)));
         // recorrer todas las instancias 
@@ -39,14 +47,34 @@ public class MinimaDistancia implements ClasificadorSupervisado {
         for(PatronRepresentativo aux: representativos){
             aux.actualizar();
         }
-        
-        System.out.println();
+    
         
     }
 
     @Override
-    public void clasificar() {
+    public void clasificar(Patron patron) {
+        int iMenor=0;
+        double dMenor = Herramientas.calcularDistanciaEuclidiana
+        (patron,this.representativos.get(0));
+        
+        // en proceso iterativo calcular las distancias con respecto a los representativos
+        for(int i = 1; i < this.representativos.size();i+=1){
+            double dN = Herramientas.calcularDistanciaEuclidiana(patron,this.representativos.get(i));
+            if(dN<dMenor){
+                dMenor = dN;
+                iMenor = i;
+            }
+        }
+        patron.setClaseResultante(
+                this.representativos.get(iMenor).getClase());
        
+    }
+
+    @Override
+    public void clasificar(ArrayList<Patron> patrones) {
+       for(Patron p: patrones){
+           clasificar(p);
+       }
     }
 
    
