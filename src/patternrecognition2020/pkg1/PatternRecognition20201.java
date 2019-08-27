@@ -22,7 +22,7 @@ public class PatternRecognition20201 {
      */
     public static void main(String[] args) {
        
-        Herramientas.leerDatos();
+        Herramientas.leerDatos(new int[]{1,1,1,1});
         
         MinimaDistancia md = new MinimaDistancia();
         md.entrenar(Herramientas.instancias);

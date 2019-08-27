@@ -83,7 +83,67 @@ public class Herramientas {
      
     }
 
-    
+    public static void leerDatos(int[] config){
+      instancias = new ArrayList<>();
+     String texto, aux;
+     LinkedList<String> lista = new LinkedList();
+        
+        try {
+            //llamamos el metodo que permite cargar la ventana
+            JFileChooser file = new JFileChooser();
+            file.showOpenDialog(file);
+            //abrimos el archivo seleccionado
+            File abre = file.getSelectedFile();
+
+            //recorremos el archivo y lo leemos
+            if (abre != null) {
+                FileReader archivos = new FileReader(abre);
+                BufferedReader lee = new BufferedReader(archivos);
+
+                while ((aux = lee.readLine()) != null) {
+                    texto = aux;
+                    lista.add(texto);
+                }
+                lee.close();
+                //System.out.println(lista.size());
+
+                ArrayList<String> lista2 = new ArrayList<>();
+                String clase = "";
+                for (int i = 0; i < lista.size(); i++) {
+                    StringTokenizer st = new StringTokenizer(lista.get(i), ",");
+
+                    while (st.hasMoreTokens()) {
+                        lista2.add(st.nextToken());
+                    }
+
+                    double[] vector = new double[obtenerDimension(config)];
+                    int j=0;
+                    for (int x = 0; x < config.length; x++) {
+                        if(config[x]==1){
+                            vector[j] = Double.parseDouble(lista2.get(x));
+                            j++;
+                        }
+                        
+                    }
+
+                    clase = lista2.get(lista2.size()-1);
+                    // a la coleccion de patrones se agrega un nuevo patron
+                    instancias.add(new Patron(vector, clase));
+                   // patrones.add();
+                    lista2.clear();
+
+                }
+          
+            }
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, ex + ""
+                    + "\nNo se ha encontrado el archivo",
+                    "ADVERTENCIA!!!", JOptionPane.WARNING_MESSAGE);
+            
+        }
+       
+       
+    }
     
     
     public static double calcularDistanciaEuclidiana(Patron a, Patron b){
@@ -93,6 +153,18 @@ public class Herramientas {
         }
         return Math.sqrt(aux);
         
+        
+    }
+
+    private static int obtenerDimension(int[] config) {
+        int c = 0;
+        for(int x=0; x< config.length;x++){
+            if(config[x]==1){
+            c++;
+            }
+        }
+        return c;
+            
         
     }
     
