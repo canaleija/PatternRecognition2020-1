@@ -27,7 +27,7 @@ public class PatternRecognition20201 {
         MinimaDistancia md = new MinimaDistancia();
         md.entrenar(Herramientas.instancias);
         md.clasificar(Herramientas.instancias);
-        System.out.println();
+        System.out.println(md.getMc().toString());
     }
     
 }
