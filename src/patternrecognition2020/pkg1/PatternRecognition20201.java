@@ -5,10 +5,10 @@
  */
 package patternrecognition2020.pkg1;
 
-import clasificadores.Herramientas;
+import clasificadores.Knn;
 import clasificadores.MinimaDistancia;
-import clasificadores.Patron;
-import clasificadores.PatronRepresentativo;
+import clasificadores.herramientasclasificadores.Herramientas;
+import clasificadores.herramientasclasificadores.Patron;
 import java.util.ArrayList;
 
 /**
@@ -28,6 +28,11 @@ public class PatternRecognition20201 {
         md.entrenar(Herramientas.instancias);
         md.clasificar(Herramientas.instancias);
         System.out.println(md.getMc().toString());
+        Knn knn = new Knn(4);
+        knn.entrenar(Herramientas.instancias);
+        knn.clasificar((ArrayList<Patron>)Herramientas.instancias.clone());
+        System.out.println(knn.getMc().toString());
+        
     }
     
 }
