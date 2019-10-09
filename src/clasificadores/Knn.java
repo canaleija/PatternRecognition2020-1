@@ -14,7 +14,7 @@ import java.util.ArrayList;
  *
  * @author CRUZLEIJA
  */
-public class Knn  implements ClasificadorSupervisado{
+public class Knn  implements Clasificador{
     private MatrizConfusion mc;
     private ArrayList<String> clases;
     private ArrayList<Patron> instancias;

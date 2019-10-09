@@ -64,11 +64,24 @@ public class Patron {
     }
     
     
-    @Override
+//    @Override
+//    public boolean equals(Object obj) {
+//        Patron aux = (Patron)obj;
+//        String nombre = getClase();
+//        return nombre.equals(aux.getClase());
+//        
+//    }
+    
+        @Override
     public boolean equals(Object obj) {
-        Patron aux = (Patron)obj;
-        String nombre = getClase();
-        return nombre.equals(aux.getClase());
+      Patron aux = (Patron) obj;
+      for(int x=0 ;x<this.vector.length;x++){
+          if(this.vector[x]!=aux.getVector()[x]){
+          return false;
+          }
+      }
+      
+      return true;
         
     }
     

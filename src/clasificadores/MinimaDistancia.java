@@ -15,7 +15,7 @@ import java.util.ArrayList;
  *
  * @author CRUZLEIJA
  */
-public class MinimaDistancia implements ClasificadorSupervisado {
+public class MinimaDistancia implements Clasificador {
 
     private  ArrayList<PatronRepresentativo> representativos;
     private MatrizConfusion mc;

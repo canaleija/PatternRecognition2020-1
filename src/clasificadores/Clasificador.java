@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author CRUZLEIJA
  */
-public interface ClasificadorSupervisado {
+public interface Clasificador {
     
     void entrenar(ArrayList<Patron> instancias);
     void clasificar(Patron patron);
