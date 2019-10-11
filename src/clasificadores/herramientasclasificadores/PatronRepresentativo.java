@@ -37,6 +37,13 @@ public class PatronRepresentativo extends Patron {
         this.contador = 0;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+
     
     
 }
