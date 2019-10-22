@@ -32,6 +32,7 @@ public class Herramientas {
         try {
             //llamamos el metodo que permite cargar la ventana
             JFileChooser file = new JFileChooser();
+            file.setCurrentDirectory(new File("./"));
             file.showOpenDialog(file);
             //abrimos el archivo seleccionado
             File abre = file.getSelectedFile();

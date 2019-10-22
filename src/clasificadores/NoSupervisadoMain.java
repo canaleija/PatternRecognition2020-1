@@ -5,8 +5,10 @@
  */
 package clasificadores;
 
+import clustering.CMeansMemo;
 import clasificadores.herramientasclasificadores.Herramientas;
 import clasificadores.herramientasclasificadores.Patron;
+import java.util.ArrayList;
 
 /**
  *
@@ -18,9 +20,11 @@ public class NoSupervisadoMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-         Herramientas.leerDatos(new int[]{1,1,1,1});
-         CMeans cm = new CMeans(150);
-         cm.entrenar(Herramientas.instancias);
+         Herramientas.leerDatos();
+         CMeansMemo cm = new CMeansMemo(3);
+         cm.entrenar(Herramientas.instancias,new int[]{0,98,149});
+         ArrayList<Patron> aux = (ArrayList<Patron>)Herramientas.instancias.clone();
+         cm.clasificar(aux);
          
     }
     
