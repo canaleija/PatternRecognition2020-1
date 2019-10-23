@@ -23,6 +23,7 @@ public class JFrameImagen extends JFrame {
         add(label);
         setSize(io.getWidth(this),io.getHeight(this));
         setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
     

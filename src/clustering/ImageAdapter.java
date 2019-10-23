@@ -34,7 +34,7 @@ public class ImageAdapter {
         return aux;
     }
     
-    public static Image generarImagenClusterizada(ArrayList<PatronRepresentativo> r,ArrayList<Patron>instancias, Dimension dim){
+    public static Image generarImagenClusterizada(PatronRepresentativo[] r,ArrayList<Patron>instancias, Dimension dim){
      Image ir = null;
      BufferedImage biaux = new BufferedImage((int)dim.getWidth(),(int)dim.getHeight(), BufferedImage.TYPE_INT_RGB);
      // recorremos las instancias

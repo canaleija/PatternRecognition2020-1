@@ -22,7 +22,7 @@ public class CMeansMemo implements Clasificador{
     private PatronRepresentativo[] centroides;
     
     public CMeansMemo(int c) {
-        if(c>15) this.c=15;
+        if(c>151) this.c=150;
         else this.c = c;
         this.centroides= new PatronRepresentativo[c];
     }

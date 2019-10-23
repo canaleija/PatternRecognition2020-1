@@ -21,11 +21,13 @@ public class ImagenesMain {
      */
     public static void main(String[] args) {
         Image io = ImageManager.openImage();
+        JFrameImagen frame1 = new JFrameImagen(io);
         ArrayList<Patron> instancias = ImageAdapter.obtenerInstancias(io);
-        CMeansMemo cmm = new CMeansMemo(10);
+        CMeansMemo cmm = new CMeansMemo(150);
         cmm.entrenar(instancias);
         cmm.clasificar(instancias);
         Image nueva = ImageAdapter.generarImagenClusterizada(cmm.getCentroides(),instancias,new Dimension(io.getWidth(null),io.getHeight(null)));
+        JFrameImagen frame2 = new JFrameImagen(nueva);
     }
     
 }
